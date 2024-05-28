@@ -1,0 +1,521 @@
+
+[
+    {
+        "id": "79c84092e726c0df",
+        "type": "tab",
+        "label": "Trab-Final-Grupo11, IOT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "630ac904ab68f03d",
+        "type": "mqtt in",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "topic": "grupo11/UmidadeSolo",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a25bcf9268254721",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "c62dd62455a23172",
+                "b923128ff8cb9443"
+            ]
+        ]
+    },
+    {
+        "id": "713f779322407c31",
+        "type": "mqtt in",
+        "z": "79c84092e726c0df",
+        "name": "Sensor de gas",
+        "topic": "grupo11/Gas",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a25bcf9268254721",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "77d6bcf66058426e",
+                "004359c883c8bba8"
+            ]
+        ]
+    },
+    {
+        "id": "e3e507d112be1640",
+        "type": "mqtt in",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "topic": "grupo11/Temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a25bcf9268254721",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "c4c3e92bcdd229c0",
+                "3934fe3f1a5cf098"
+            ]
+        ]
+    },
+    {
+        "id": "3a2de38d03c8c810",
+        "type": "mqtt in",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "topic": "grupo11/UmidadeAr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a25bcf9268254721",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "ebe2aa08873820cd",
+                "6caaabcdb296f58d"
+            ]
+        ]
+    },
+    {
+        "id": "bb975e9ba918eddb",
+        "type": "influxdb out",
+        "z": "79c84092e726c0df",
+        "influxdb": "1050bf885dfa449c",
+        "name": "",
+        "measurement": "Temperatura",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "grupo11",
+        "bucket": "IOTgrupo11-2",
+        "x": 750,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "77d6bcf66058426e",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar Gas",
+        "func": "msg.payload = {\n    measurement: \"gas\",\n    value: parseFloat(msg.payload)\n};\nreturn msg;\n/*msg.payload = parseFloat(msg.payload); // Converte o conteúdo para um número decimal\nmsg.payload = \"Gás \" + msg.payload; // Adiciona a string \"Umidade\" ao número convertido\nreturn msg;*/",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "61058021b066fed9"
+            ]
+        ]
+    },
+    {
+        "id": "c62dd62455a23172",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar Umidade Solo",
+        "func": "\nmsg.payload = {\n    measurement: \"umidade_solo\",\n    value: parseFloat(msg.payload)\n};\n\n// Concatenando uma string com o valor\nmsg.payload = \"A Umidade do Solo é: \" + msg.payload.value + \"%\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 240,
+        "wires": [
+            [
+                "f23f97c49558e3b3"
+            ]
+        ]
+    },
+    {
+        "id": "ebe2aa08873820cd",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar Umidade Ar",
+        "func": "msg.payload = {\n    measurement: \"Umidade Ar\",\n    value: parseFloat(msg.payload)\n};\n\n// Concatenando uma string com o valor\nmsg.payload = \"A umidade é: \" + msg.payload.value + \"%\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 740,
+        "wires": [
+            [
+                "1250832575297f16"
+            ]
+        ]
+    },
+    {
+        "id": "be4ee448b87fc60f",
+        "type": "influxdb out",
+        "z": "79c84092e726c0df",
+        "influxdb": "1050bf885dfa449c",
+        "name": "",
+        "measurement": "UmidadeDoAr",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "grupo11",
+        "bucket": "IOTgrupo11-2",
+        "x": 710,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "61058021b066fed9",
+        "type": "influxdb out",
+        "z": "79c84092e726c0df",
+        "influxdb": "1050bf885dfa449c",
+        "name": "",
+        "measurement": "Gas",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "grupo11",
+        "bucket": "IOTgrupo11-2",
+        "x": 740,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "11b9d9f81586bf58",
+        "type": "influxdb out",
+        "z": "79c84092e726c0df",
+        "influxdb": "1050bf885dfa449c",
+        "name": "",
+        "measurement": "UmidadeSolo",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "grupo11",
+        "bucket": "IOTgrupo11-2",
+        "x": 710,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7b5a9e917e3027b0",
+        "type": "debug",
+        "z": "79c84092e726c0df",
+        "name": "debugTemp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1450,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c4c3e92bcdd229c0",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar Temperatura",
+        "func": "msg.payload = {\n    measurement: \"temperatura\",\n    value: parseFloat(msg.payload)\n};\n\n// Concatenando uma string com o valor\nmsg.payload = \"A temperatura é: \" + msg.payload.value + \"ºC\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 580,
+        "wires": [
+            [
+                "53ecb161a4c624c6"
+            ]
+        ]
+    },
+    {
+        "id": "323bae30d908cf83",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "79c84092e726c0df",
+        "name": "Mensagem TempUmidade",
+        "credtype": "account",
+        "account": "1e1b658cf62c54b7",
+        "text": "payload",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 1190,
+        "y": 460,
+        "wires": [
+            [
+                "7b5a9e917e3027b0"
+            ]
+        ]
+    },
+    {
+        "id": "01801ebfc965ca2a",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "79c84092e726c0df",
+        "name": "Mensagem TempUmidade",
+        "credtype": "account",
+        "account": "1e1b658cf62c54b7",
+        "text": "payload",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 1890,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1250832575297f16",
+        "type": "rbe",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 810,
+        "y": 740,
+        "wires": [
+            [
+                "323bae30d908cf83"
+            ]
+        ]
+    },
+    {
+        "id": "53ecb161a4c624c6",
+        "type": "rbe",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 790,
+        "y": 580,
+        "wires": [
+            [
+                "323bae30d908cf83"
+            ]
+        ]
+    },
+    {
+        "id": "6caaabcdb296f58d",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Umidade Ar Influx DB",
+        "func": "msg.payload = {\n    measurement: \"Umidade Ar\",\n    value: parseFloat(msg.payload)\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 820,
+        "wires": [
+            [
+                "be4ee448b87fc60f"
+            ]
+        ]
+    },
+    {
+        "id": "3934fe3f1a5cf098",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Temperatura Influx DB",
+        "func": "msg.payload = {\n    measurement: \"temperatura\",\n    value: parseFloat(msg.payload)\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "bb975e9ba918eddb"
+            ]
+        ]
+    },
+    {
+        "id": "b923128ff8cb9443",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar Umidade Solo",
+        "func": "msg.payload = {\n    measurement: \"gas\",\n    value: parseFloat(msg.payload)\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "11b9d9f81586bf58"
+            ]
+        ]
+    },
+    {
+        "id": "004359c883c8bba8",
+        "type": "function",
+        "z": "79c84092e726c0df",
+        "name": "Formatar whats Gas",
+        "func": "\nmsg.payload = {\n    measurement: \"Sensor_Gas\",\n    value: parseFloat(msg.payload)\n};\n\n// Concatenando uma string com o valor\nmsg.payload = \"O nivel de gás é: \" + msg.payload.value + \"%\";\n\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 627,
+        "y": 166,
+        "wires": [
+            [
+                "9df29edd53ca657b"
+            ]
+        ]
+    },
+    {
+        "id": "9df29edd53ca657b",
+        "type": "rbe",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 870,
+        "y": 160,
+        "wires": [
+            [
+                "323bae30d908cf83"
+            ]
+        ]
+    },
+    {
+        "id": "f23f97c49558e3b3",
+        "type": "rbe",
+        "z": "79c84092e726c0df",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 910,
+        "y": 260,
+        "wires": [
+            [
+                "323bae30d908cf83"
+            ]
+        ]
+    },
+    {
+        "id": "a25bcf9268254721",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1050bf885dfa449c",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "influxDB Grupo11",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "1e1b658cf62c54b7",
+        "type": "node-red-contrib-whatsapp-cmb-account",
+        "name": "WhatsApp API Account"
+    }
+]
