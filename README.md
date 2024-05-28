@@ -10,7 +10,9 @@ Para viabilizar o nosso projeto utilizamos ferramentas como wokwi para represent
 
 #Pré Requisitos:
 - Instalar Node Red
+- Montar o esquema abaixo (Node Red)
 - Acessar os links WokWi abaixo
+- Conectar o Broker MQTT com o mesmo tópico do nosso WokWi
 
 ![WhatsApp Image 2024-05-28 at 17 49 21](https://github.com/jeffersoncdantas/iot/assets/111805679/50d09e34-0eae-43c0-a250-c40d414d9663)
 
