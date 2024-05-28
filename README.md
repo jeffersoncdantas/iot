@@ -18,13 +18,28 @@ Para viabilizar o nosso projeto utilizamos ferramentas como wokwi para represent
 
 # Umidade Solo
 
+https://wokwi.com/projects/399154054586263553
+
 ![WhatsApp Image 2024-05-28 at 17 59 29](https://github.com/jeffersoncdantas/iot/assets/111805679/52628ca6-0d15-4a2a-b3c9-a5accee7ed26)
+
+![WhatsApp Image 2024-05-28 at 18 36 12](https://github.com/jeffersoncdantas/iot/assets/111805679/056abadb-42df-49cc-b169-9e9cfdde8a97)
+
 
 # Gás Tóxico
 
+https://wokwi.com/projects/399154126058263553
+
 ![WhatsApp Image 2024-05-28 at 18 01 13](https://github.com/jeffersoncdantas/iot/assets/111805679/7781d364-3dbd-4a9c-b6e7-2897a14f75ba)
+
+![WhatsApp Image 2024-05-28 at 18 36 56](https://github.com/jeffersoncdantas/iot/assets/111805679/fc2d7652-f10b-4685-bf31-7c573b299d32)
+
 
 # Temperatura e Umidade Ar
 
+https://wokwi.com/projects/398965189310858241
+
 ![WhatsApp Image 2024-05-28 at 18 01 53](https://github.com/jeffersoncdantas/iot/assets/111805679/bedaa896-b1e4-416c-96e3-5a98c3cd2f65)
+
+![WhatsApp Image 2024-05-28 at 18 35 04](https://github.com/jeffersoncdantas/iot/assets/111805679/dd7ddbc0-ecc1-4d51-807d-185b187a8700)
+
 
