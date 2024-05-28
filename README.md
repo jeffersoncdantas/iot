@@ -20,9 +20,11 @@ Para viabilizar o nosso projeto utilizamos ferramentas como wokwi para represent
 
 ![WhatsApp Image 2024-05-28 at 17 59 29](https://github.com/jeffersoncdantas/iot/assets/111805679/52628ca6-0d15-4a2a-b3c9-a5accee7ed26)
 
+# Gás Tóxico
 
 ![WhatsApp Image 2024-05-28 at 18 01 13](https://github.com/jeffersoncdantas/iot/assets/111805679/7781d364-3dbd-4a9c-b6e7-2897a14f75ba)
 
+# Temperatura e Umidade Ar
 
 ![WhatsApp Image 2024-05-28 at 18 01 53](https://github.com/jeffersoncdantas/iot/assets/111805679/bedaa896-b1e4-416c-96e3-5a98c3cd2f65)
 
