@@ -8,6 +8,10 @@ Essa necessidade vem de mudanças climáticas que dificultam aos orgãos compete
 
 Para viabilizar o nosso projeto utilizamos ferramentas como wokwi para representar melhor a nossa solução, node-red para conexões, influxdb para coleta de dados e até mesmo o whatsapp para recebimentos destes, evidentemente com melhores orçamentos podemos sim criar um equipamento preparado para aguentar condições de seca, umidade, calor e que colete informações a longo prazo.
 
+#Pré Requisitos:
+- Instalar Node Red
+- Acessar os links WokWi abaixo
+
 ![WhatsApp Image 2024-05-28 at 17 49 21](https://github.com/jeffersoncdantas/iot/assets/111805679/50d09e34-0eae-43c0-a250-c40d414d9663)
 
 
